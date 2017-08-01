@@ -1,0 +1,2 @@
+# make sure installs fail on the slightest problem, we don't want half-installed clould images
+STOP_ON_ERROR=1
