@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+
+fcopy -M /etc/sysctl.d/49-overcommit.conf

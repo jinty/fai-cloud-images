@@ -1,0 +1,15 @@
+#### OOM prevention ####
+#
+# see https://www.kernel.org/doc/Documentation/vm/overcommit-accounting
+# https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Performance_Tuning_Guide/s-memory-captun.html
+
+# Don't overcommit memory, this causes apps to error once memory use reaches SWAP + (overcommit_ratio/100 * RAM)
+vm.overcommit_memory=2
+
+# Linux calculates total memory allowed for malloc as:
+# 	allowed = SWAP + (overcommit_ratio/100 * RAM)
+# default for overcommit_ratio was 50.
+#
+# Leave 15% of memory for "pagetables and buffers etc." (https://lkml.org/lkml/2010/4/20/239)
+vm.overcommit_ratio=85
+
